@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Multi Select</title>
+</head>
+<body>
+  看书：<input type="checkbox" name="checkbox" value=1><br>
+  写字：<input type="checkbox" name="checkbox"value=2><br>
+  睡觉：<input type="checkbox" name="checkbox"value=3><br>
+  玩游戏：<input type="checkbox" name="checkbox"value=4><br>
+  <button onclick="checkboxed('checkbox')">全选</button>
+  <button onclick="uncheckboxed('checkbox')">取消全选</button>
+
+</body>
+<script type="text/javascript">
+  function checkboxed(name){
+    let cbs = document.getElementsByName(name);
+    if(cbs != null){
+      for(let i=0; i<cbs.length; i++){
+        cbs[i].checked = 'checked'
+      }
+    }
+  }
+
+  function uncheckboxed(name){
+    let cbs = document.getElementsByName(name);
+    if(cbs != null){
+      for(let i=0; i<cbs.length; i++){
+        cbs[i].checked = ''
+      }
+    }
+  }
+</script>
+</html>

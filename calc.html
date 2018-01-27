@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+</head>
+<body>
+  <div>
+    <table border=1>
+      <tbody>
+        <tr><td colspan="4"><input type="text" id="firstNumber"/></td></tr>
+        <tr><td colspan="4"><input type="text" id="secondNumber"/></td></tr>
+        <tr>
+          <td><button onclick="doAdd()">+</button></td>
+          <td><button onclick="doMinus()">-</button></td>
+          <td><button onclick="doMultiply()">x</button></td>
+          <td><button onclick="doDivide()">/</button></td>
+        </tr>
+        <tr>
+          <td colspan="4"><span id="result">result here</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+<script>
+  function getFirstNumber(){
+    return document.getElementById('firstNumber').value
+  }
+  function getSecondNumber(){
+    return document.getElementById('secondNumber').value
+  }
+
+  function doAdd(){
+    let firstNum = getFirstNumber();
+    let secondNum = getSecondNumber();
+    showResult(Number(firstNum) + Number(secondNum))
+  }
+
+  function doMinus(){
+    showResult(getFirstNumber() - getSecondNumber())
+  }
+
+  function doMultiply(){
+    showResult(getFirstNumber() * getSecondNumber())
+  }
+
+  function doDivide(){
+    showResult(getFirstNumber() / getSecondNumber())
+  }
+
+  showResult = result => {
+    document.getElementById('result').innerHTML= result
+  }
+</script>
+</html>
