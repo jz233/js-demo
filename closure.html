@@ -8,7 +8,9 @@
 </head>
 <body>
   <button onclick="start()">add</button>
+  <button onclick="test()">test</button>
   <div id="demo"></div>
+  <div id="closure"></div>
 <script>
   //闭包1
   function a(){
@@ -54,6 +56,23 @@
     d();
     d();
   }
+
+  //小测试
+  var tempFunc;
+  var add = (function(){
+    var counter = 0;
+    tempFunc = function(){
+      return counter += 1;
+    }
+    return tempFunc
+  })();
+  function test(){
+    alert(add === tempFunc)
+    document.getElementById('closure').innerHTML = add()
+  }
+
+
+
 </script>
 </body>
 </html>
