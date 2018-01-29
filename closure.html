@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Closure</title>
+</head>
+<body>
+  <button onclick="start()">add</button>
+  <div id="demo"></div>
+<script>
+  //闭包1
+  function a(){
+    var counter = 0;
+    function inc(){
+      counter++;
+      alert(counter);
+    }
+    inc();
+    inc();
+    inc();
+  }
+  //闭包2
+  function b(){
+    var n = 0;
+    //this只是将 inc 与外部联系起来而已
+    this.inc = function(){
+      n++;
+      alert(n);
+    }
+  }
+  //闭包3
+  function c(){
+    var n = 0;
+    function inc(){
+      n++;
+      alert(n);
+    }
+    return inc;
+  }
+
+  function start(){
+    // a();
+
+    // var c = new b();
+    // var c = new b;
+    // c.inc();
+    // c.inc();
+    // c.inc();
+
+    var d = c();
+    d();
+    d();
+    d();
+  }
+</script>
+</body>
+</html>

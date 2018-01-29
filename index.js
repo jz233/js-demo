@@ -53,4 +53,27 @@ var s2 = new String("John");
 // alert(typeof s1 + "\r" + typeof s2);  //string类型 和 object类型
 // alert(s1 == s2) //true值相同
 // alert(s1 === s2)  //false类型不同
-alert(s1.constructor) //返回创建字符串属性的函数
+// alert(s1.constructor) //返回创建字符串属性的函数
+
+//变量提升
+// x = 5; // 变量 x 设置为 5
+// elem = document.getElementById("demo"); // 查找元素
+// elem.innerHTML = x;                     // 在元素中显示 x (x实际输出5)
+// var x; // 声明 x
+
+//初始化变量不会提升
+// var x = 5; // 初始化 x
+
+// elem = document.getElementById("demo"); // 查找元素
+// elem.innerHTML = x + " " + y;           // 显示 x 和 y(y实际输出undefined)
+// var y = 7; // 初始化 y
+
+function testIf() {
+  let x = 123;
+  // let x = 0;
+  if(x){
+    alert('true');
+  }else {
+    alert('false')
+  }
+}
