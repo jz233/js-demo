@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Size</title>
+</head>
+<body>
+
+<p id="demo"></p>
+<script>
+// 浏览器窗口的尺寸
+var w=window.innerWidth // Internet Explorer、Chrome、Firefox、Opera 以及 Safari
+|| document.documentElement.clientWidth //  Internet Explorer 8、7、6、5
+|| document.body.clientWidth;  //其他
+var h=window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
+// Window Screen 可用宽度
+var screenHeight = screen.availHeight;
+var screenWidth = screen.availWidth;
+x=document.getElementById("demo");
+x.innerHTML="浏览器window宽度: " + w + ", 高度: " + h + "<br/>"
+          + "Window Screen 可用宽度: " + screenWidth + ", 高度: " + screenHeight;
+
+
+</script>
+
+</body>
+</html>
