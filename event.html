@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Event</title>
+</head>
+<body>
+  <div id="demo">Click div</div>
+
+  <script>
+    // change 后面不要加括号，否则会自动调用
+    var demo = document.getElementById('demo');
+    demo.addEventListener('click', change);
+    demo.addEventListener('mouseover', over);
+    demo.addEventListener('mouseout', out);
+    function over(){
+      demo.innerHTML = 'click me'
+    }
+
+    function out(){
+      demo.innerHTML = 'Click div'
+    }
+    function change(){
+      alert('click');
+      demo.removeEventListener('mouseover', over);
+      demo.removeEventListener('mouseout', out);
+      demo.innerHTML = 'changed text';
+    }
+  </script>
+</body>
+</html>
