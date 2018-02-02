@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM</title>
+</head>
+<body>
+  <section>
+    <img src="bd_logo1.png" alt="Baidu logo">
+    <p>
+      Here we will add a link to the
+      <!-- <a href="https://www.mozilla.org/">Mozilla homepage</a> -->
+      <a></a>
+    </p>
+  </section>
+  <script>
+    var link = document.querySelector('a')
+    link.textContent = 'Baidu'
+    link.href = 'https://www.baidu.com'
+
+    var section = document.querySelector('section')
+    var para = document.createElement('p')
+    para.textContent = 'We hope you enjoy the ride.'
+    section.appendChild(para)
+
+    var text = document.createTextNode(' — the premier source for web development knowledge.')
+    var linkPara = document.querySelector('p')
+    linkPara.appendChild(text)
+    // section.appendChild(linkPara)
+    // section.removeChild(linkPara)
+    // linkPara.parentNode.removeChild(linkPara)  //linkPara父节点就是section
+  </script>
+</body>
+</html>
