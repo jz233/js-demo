@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Re-Introduction</title>
+</head>
+<body>
+  <script>
+    function makePerson(first, last){
+      return {
+        first: first,
+        last: last,
+        fullName : function(){
+          return this.first + ', ' + this.last
+        },
+        fullNameReversed : function(){
+          return this.last + ', ' + this.first
+        }
+      }
+    }
+    // var p = new makePerson('Jason', 'Zhang')
+    // console.log(p.fullName())
+    // console.log(p.fullNameReversed())
+
+
+    // function Person(first, last){
+    //   this.first = first
+    //   this.last = last
+    //   this.fullName = function() {
+    //     return this.first + ', ' + this.last
+    //   }
+    //   this.fullNameReversed = function() {
+    //     return this.last + ', ' + this.first
+    //   }
+    // }
+    // var ps = new Person('Jason', 'Chang')
+    // console.log(ps.fullName())
+
+    function Person(first, last) {
+      this.first = first
+      this.last = last
+    }
+    // 自定义对象扩展
+    Person.prototype.fullName = function() {
+      return this.first + ' ' + this.last
+    }
+    Person.prototype.fullNameReversed = function() {
+      return this.last + ' ' + this.first
+    }
+    var ps = new Person('Jason', 'Chang')
+    console.log(ps.fullNameReversed())
+
+    Person.prototype.firstNameCaps = function() {
+      return this.first.toUpperCase()
+    }
+    Person.prototype.fullNameCaps = function() {
+      return this.fullName().toUpperCase()
+    }
+    console.log(ps.firstNameCaps())
+    console.log(ps.fullNameCaps())
+
+    // 类似Java重写方法
+    Person.prototype.toString = function() {
+      return '<Person: ' + this.fullName() + '>'
+    }
+    console.log(ps.toString())
+
+    // 内置对象扩展
+    String.prototype.reversed = function() {
+      var result = ''
+      for(var i=this.length-1; i>=0; i--){
+        result += this[i]
+      }
+      return result
+    }
+
+    console.log('This can now be reversed'.reversed())
+
+    function trivialNew(constr, ...args){
+      var o = {};
+      constr.apply(o, args);
+      return o;
+    }
+
+    // 和 var p1 = new Person('James', 'Bond') 有不同
+    // 这并不是 new 的完整实现，因为它没有创建原型（prototype）链。 所以原型链上定义的函数这里都不能调用 e.g. firstNameCaps()等等
+    var p1 = trivialNew(Person, 'James', 'Bond');
+    // var p1 = new Person('James', 'Bond')
+
+    //TODO call()
+    
+
+  </script>
+</body>
+</html>
